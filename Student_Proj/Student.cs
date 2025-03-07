@@ -8,6 +8,7 @@ namespace Student_Proj
 {
     public class Student
     {
+        public string StudentID { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
