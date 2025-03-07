@@ -38,7 +38,7 @@ namespace Student_Proj
             {
                 FirstName = teFirstName.Text,
                 LastName = teLastName.Text,
-                Age = age,
+                Age = teAge.Text,
                 PhoneNumber = tePhoneNumber.Text,
                 Address = teAddress.Text
             };
@@ -48,32 +48,7 @@ namespace Student_Proj
             ClearInputs();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            int selectedRowHandle = gridView1.FocusedRowHandle;
-
-            if (selectedRowHandle >= 0)
-            {
-                Student selectedStudent = gridView1.GetRow(selectedRowHandle) as Student;
-                if (selectedStudent != null)
-                {
-                    DialogResult result = XtraMessageBox.Show("Are you sure you want to delete this record?",
-                        "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        students.Remove(selectedStudent);
-                        RefreshGrid();
-                        XtraMessageBox.Show("Record deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearInputs();
-                    }
-                }
-            }
-            else
-            {
-                XtraMessageBox.Show("Please select a student to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+       
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -113,7 +88,7 @@ namespace Student_Proj
                 {
                     student.FirstName = teFirstName.Text;
                     student.LastName = teLastName.Text;
-                    student.Age = age;
+                    student.Age = teAge.Text;
                     student.PhoneNumber = tePhoneNumber.Text;
                     student.Address = teAddress.Text;
 
@@ -141,6 +116,34 @@ namespace Student_Proj
             teAge.Text = "";
             tePhoneNumber.Text = "";
             teAddress.Text = "";
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = XtraMessageBox.Show("Are you sure you want to delete this record?",
+                       "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                int selectedRowHandle = gridView1.FocusedRowHandle;
+
+                if (selectedRowHandle >= 0)
+                {
+                    Student selectedStudent = gridView1.GetRow(selectedRowHandle) as Student;
+                    if (selectedStudent != null)
+                    {
+
+                        students.Remove(selectedStudent);
+                        RefreshGrid();
+                        XtraMessageBox.Show("Record deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearInputs();
+                    }
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Please select a student to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 

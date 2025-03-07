@@ -33,7 +33,7 @@
             this.FirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Age = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Birthdate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PhoneNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Address = new DevExpress.XtraGrid.Columns.GridColumn();
             this.teFirstName = new DevExpress.XtraEditors.TextEdit();
             this.teLastName = new DevExpress.XtraEditors.TextEdit();
@@ -73,7 +73,7 @@
             this.FirstName,
             this.LastName,
             this.Age,
-            this.Birthdate,
+            this.PhoneNumber,
             this.Address});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
@@ -108,15 +108,15 @@
             this.Age.VisibleIndex = 2;
             this.Age.Width = 94;
             // 
-            // Birthdate
+            // PhoneNumber
             // 
-            this.Birthdate.Caption = "Birth Date";
-            this.Birthdate.FieldName = "BirthDate";
-            this.Birthdate.MinWidth = 25;
-            this.Birthdate.Name = "Birthdate";
-            this.Birthdate.Visible = true;
-            this.Birthdate.VisibleIndex = 3;
-            this.Birthdate.Width = 94;
+            this.PhoneNumber.Caption = "Phone Number";
+            this.PhoneNumber.FieldName = "PhoneNumber";
+            this.PhoneNumber.MinWidth = 25;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Visible = true;
+            this.PhoneNumber.VisibleIndex = 3;
+            this.PhoneNumber.Width = 94;
             // 
             // Address
             // 
@@ -199,6 +199,7 @@
             this.btnDelete.Size = new System.Drawing.Size(123, 34);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // lcFirstName
             // 
@@ -287,7 +288,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn FirstName;
         private DevExpress.XtraGrid.Columns.GridColumn LastName;
         private DevExpress.XtraGrid.Columns.GridColumn Age;
-        private DevExpress.XtraGrid.Columns.GridColumn Birthdate;
+        private DevExpress.XtraGrid.Columns.GridColumn PhoneNumber;
         private DevExpress.XtraGrid.Columns.GridColumn Address;
         private DevExpress.XtraEditors.TextEdit teAge;
         private DevExpress.XtraEditors.TextEdit tePhoneNumber;
